@@ -49,7 +49,7 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
             if(artWork.getConstituents().get(0).getName().contains("&#39")){
                 artWork.getConstituents().get(0).setName(artWork.getConstituents().get(0).getName().replace("&#39;  ", "'"));
             }
-            holder.updateContent(artWork.getConstituents().get(0).getName()+"", artWork.getPrimaryImage(),artWork.getTitle());
+            holder.updateContent(artWork.getConstituents().get(0).getName()+"", artWork.getPrimaryImageSmall(),artWork.getTitle());
 
         }catch (NullPointerException e){
             Log.d("TAG", "onBindViewHolder: niente ");
