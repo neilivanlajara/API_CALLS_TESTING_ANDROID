@@ -2,7 +2,9 @@ package com.example.api_calls_testing_android.listfollowers;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,6 +22,9 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
 
     private final TextView userName;
     private final TextView userID;
+/*
+    private final EditText editText;
+*/
     private final ImageView userIMG;
     private ImageView userPicture;
     private final Bundle args;
@@ -29,8 +34,8 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
         userName = itemView.findViewById(R.id.DepartmentID);
         userID = itemView.findViewById(R.id.DepartmentNAME);
         userIMG = itemView.findViewById(R.id.DepartmentIMG);
+        EditText simpleEditText = (EditText) itemView.findViewById(R.id.search_bar_edit);
         args = new Bundle();
-
 
 
     }
@@ -38,6 +43,8 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
     public void updateContent( String userName, int pversion){
         this.userName.setText(userName);
         this.userID.setText(Integer.toString(pversion));
+
+
 
         String url = "https://images.metmuseum.org/CRDImages/as/web-large/DP122162.jpg";
         Glide.with(itemView.getContext())

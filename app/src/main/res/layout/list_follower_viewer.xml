@@ -1,35 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+    android:layout_width="300dp"
     android:layout_height="200dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
-    app:cardCornerRadius="2dp"
-    android:layout_margin="10dp">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="10dp">
+    app:cardCornerRadius="50dp"
 
+    android:layout_margin="5dp"
+    >
+
+
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:scaleY="1.2"
+            android:scaleX="1.2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:id="@+id/DepartmentIMG"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:text="Department ID"
             android:id="@+id/DepartmentID"
+            android:layout_gravity="center"
+            android:fontFamily="@font/brownland"
+                android:shadowColor="@color/material_dynamic_neutral90"
+            android:textSize="70dp"
+
+            android:textAllCaps="true"
+            android:shadowDx="1"
+            android:shadowDy="1"
+            android:shadowRadius="2"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+
+
+
             android:layout_height="wrap_content"></TextView>
         <TextView
             android:layout_width="match_parent"
             android:text="Department Name"
+
+
+            android:visibility="gone"
+
             android:id="@+id/DepartmentNAME"
             android:layout_height="wrap_content"></TextView>
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/DepartmentIMG"
-            >
 
-        </ImageView>
-    </LinearLayout>
+
 
 </androidx.cardview.widget.CardView>
