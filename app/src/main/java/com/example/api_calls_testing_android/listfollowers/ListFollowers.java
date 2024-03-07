@@ -135,7 +135,9 @@ public class ListFollowers extends Fragment {
         listFollowersViewModel.getUserListFollowerBuffer().observe(getActivity(), v->{
             listFollowersAdapter.notifyItemInserted( listFollowersViewModel.getUserListFollowerBuffer().getValue().size()-1);
         });
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.HORIZONTAL, false));
+/*
+        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false));
+*/
 
         recyclerView.setAdapter(listFollowersAdapter);
 
