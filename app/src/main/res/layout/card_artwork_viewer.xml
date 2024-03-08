@@ -23,24 +23,24 @@
             />
 
         <TextView
-            android:layout_width="match_parent"
-            android:text="Department ID"
             android:id="@+id/DepartmentID"
-            android:layout_gravity="center"
-            android:fontFamily="@font/brownland"
-                android:shadowColor="@color/material_dynamic_neutral90"
-            android:textSize="70dp"
-
-            android:textAllCaps="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:autoSizeMaxTextSize="@dimen/text_margin"
+            android:background="@color/white"
+            android:fontFamily="@font/roboto"
+            android:shadowColor="@color/material_dynamic_neutral90"
             android:shadowDx="1"
             android:shadowDy="1"
             android:shadowRadius="2"
+            android:text="Department ID"
             android:textAlignment="center"
+            android:textAllCaps="true"
             android:textColor="@color/black"
 
 
-
-            android:layout_height="wrap_content"></TextView>
+            android:textSize="24dp"></TextView>
         <TextView
             android:layout_width="match_parent"
             android:text="Department Name"

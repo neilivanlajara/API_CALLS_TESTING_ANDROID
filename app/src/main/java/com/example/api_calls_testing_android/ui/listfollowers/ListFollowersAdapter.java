@@ -1,10 +1,9 @@
-package com.example.api_calls_testing_android.listfollowers;
+package com.example.api_calls_testing_android.ui.listfollowers;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.model.DepartmentInfo;
-import com.example.api_calls_testing_android.ui.department.DepartmentViewHolder;
 
 import java.util.List;
 import java.util.concurrent.Executor;
@@ -35,7 +33,7 @@ public class ListFollowersAdapter extends RecyclerView.Adapter<ListFollowersView
     @NonNull
     @Override
     public ListFollowersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.list_follower_viewer, parent, false);
+        View view = inflater.inflate(R.layout.card_artwork_viewer, parent, false);
 
         return new ListFollowersViewHolder(view);
     }
@@ -43,7 +41,7 @@ public class ListFollowersAdapter extends RecyclerView.Adapter<ListFollowersView
     @Override
     public void onBindViewHolder(@NonNull ListFollowersViewHolder holder, int position) {
         DepartmentInfo singleDep = users.get(position);
-        holder.updateContent(singleDep.getDisplayName(),singleDep.getDepartmentId() );
+        holder.updateContent(singleDep.getDisplayName(),singleDep.getDepartmentId(), singleDep.getImg() );
     }
 
 

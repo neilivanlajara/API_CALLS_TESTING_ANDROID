@@ -14,7 +14,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="110dp"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
             <ImageView
                 android:id="@+id/logo_MET"
                 android:layout_width="match_parent"
@@ -23,6 +25,7 @@
                 android:layout_height="50dp">
 
             </ImageView>
+
         </LinearLayout>
         <RelativeLayout
             xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,16 +35,16 @@
 
             >
             <EditText
-                android:id="@+id/search_bar_edit"
+                android:id="@+id/search_bar_dep"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="5dp"
                 android:background="@drawable/roundcorner"
                 android:gravity="center_horizontal"
                 android:padding="10dp"
-                android:textAllCaps="true"
                 android:textSize="15sp" />
-            <ImageView
+
+          <!--  <ImageView
                     android:layout_width="wrap_content"
                     android:scaleX="0.7"
                     android:scaleY="0.7"
@@ -49,7 +52,7 @@
                     android:layout_alignRight="@id/search_bar_edit"
                     android:layout_height="wrap_content"
                     android:src="@drawable/search_logo"></ImageView>
-
+-->
         </RelativeLayout>
             <TextView
                 android:layout_marginLeft="10dp"
@@ -63,13 +66,18 @@
                 android:text="Departments"/>
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/contactsRecyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="500dp"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-        android:layout_marginLeft="20dp"
-        />
+        android:layout_height="wrap_content">
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/contactsRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="500dp"
+                app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                android:layout_marginLeft="20dp"
+                />
+
+    </LinearLayout>
     </LinearLayout>
 
 </FrameLayout>

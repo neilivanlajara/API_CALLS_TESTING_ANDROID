@@ -45,15 +45,9 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 
 */
 
-        try{
-            if(artWork.getConstituents().get(0).getName().contains("&#39")){
-                artWork.getConstituents().get(0).setName(artWork.getConstituents().get(0).getName().replace("&#39;  ", "'"));
-            }
-            holder.updateContent(artWork.getConstituents().get(0).getName()+"", artWork.getPrimaryImageSmall(),artWork.getTitle());
 
-        }catch (NullPointerException e){
-            Log.d("TAG", "onBindViewHolder: niente ");
-        }
+            holder.updateContent(artWork.getConstituents().get(0).getName()+""+artWork.getPrimaryImageSmall().length(), artWork.getPrimaryImageSmall(),artWork.getTitle());
+
 
      /*   if (artWork.getMessage() != "ObjectID not found"){
             holder.updateContent(artWork.getConstituents().get(0).getName()+"", artWork.getPrimaryImage());

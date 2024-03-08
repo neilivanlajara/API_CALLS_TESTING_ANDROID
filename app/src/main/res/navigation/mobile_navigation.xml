@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_listFollowers"
-        android:name="com.example.api_calls_testing_android.listfollowers.ListFollowers"
+        android:name="com.example.api_calls_testing_android.ui.listfollowers.ListFollowers"
         android:label="Art departments" />
 
 
