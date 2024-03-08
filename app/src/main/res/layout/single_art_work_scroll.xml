@@ -17,10 +17,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
+            android:fontFamily="@font/austin"
+            android:textColor="#FFFCFC"
 
             android:text="TextView"
-            android:textSize="20dp" />
+            android:textSize="64dp" />
 
 
         <ImageView
