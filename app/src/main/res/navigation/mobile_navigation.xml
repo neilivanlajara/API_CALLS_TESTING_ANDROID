@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.api_calls_testing_android.ui.department.DepartmentFragment"
+        android:name="com.example.api_calls_testing_android.ui.dashboard.DashboardFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
     <fragment
@@ -23,7 +23,7 @@
         tools:layout="@layout/fragment_notifications" />
     <fragment
         android:id="@+id/navigation_listFollowers"
-        android:name="com.example.api_calls_testing_android.ui.listfollowers.ListFollowers"
+        android:name="com.example.api_calls_testing_android.ui.department.DepartmentFragment"
         android:label="Art departments" />
 
 

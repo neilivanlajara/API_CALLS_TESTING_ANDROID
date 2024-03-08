@@ -16,6 +16,7 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.ViewPager2;
 
+import com.example.api_calls_testing_android.MainActivity;
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.databinding.FragmentHomeBinding;
 
@@ -36,6 +37,7 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        ((MainActivity) requireActivity()).getSupportActionBar().hide();
 
 
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);

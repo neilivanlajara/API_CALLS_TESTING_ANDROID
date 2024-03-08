@@ -13,8 +13,7 @@
         android:layout_height="wrap_content"  >
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="110dp"
-            android:layout_weight="1"
+            android:layout_height="85dp"
             android:orientation="horizontal">
 
             <ImageView
@@ -22,7 +21,7 @@
                 android:layout_width="match_parent"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/logo"
-                android:layout_height="50dp">
+                android:layout_height="60dp">
 
             </ImageView>
 
@@ -56,6 +55,7 @@
         </RelativeLayout>
             <TextView
                 android:layout_marginLeft="10dp"
+                android:id="@+id/labelTextContext"
 
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="7.5dp"

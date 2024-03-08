@@ -1,25 +1,18 @@
-package com.example.api_calls_testing_android.ui.listfollowers;
+package com.example.api_calls_testing_android.ui.dashboard;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.repository.GetArtworkRepository;
 
-import java.util.Random;
-
-
-public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
+public class DashboardViewHolder extends RecyclerView.ViewHolder{
 
 
     private final TextView userName;
@@ -29,7 +22,7 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
     private ImageView userPicture;
     private final Bundle args;
 
-    public ListFollowersViewHolder(@NonNull View itemView) {
+    public DashboardViewHolder(@NonNull View itemView) {
         super(itemView);
         userName = itemView.findViewById(R.id.DepartmentID);
         userID = itemView.findViewById(R.id.DepartmentNAME);
@@ -39,9 +32,9 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
 
     }
 
-    public void updateContent( String userName, int pversion,String pic){
+    public void updateContent( String userName, String pversion,String pic){
         this.userName.setText(userName);
-        this.userID.setText(Integer.toString(pversion));
+        this.userID.setText((pversion));
 
         //temporaneo
 /*
@@ -63,6 +56,5 @@ public class ListFollowersViewHolder extends RecyclerView.ViewHolder {
 
         this.userPicture.setImageBitmap(resizedBitmap);
     }
-
 
 }

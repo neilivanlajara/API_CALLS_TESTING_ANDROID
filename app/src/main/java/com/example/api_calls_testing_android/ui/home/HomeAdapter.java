@@ -1,7 +1,6 @@
 package com.example.api_calls_testing_android.ui.home;
 
 import android.content.Context;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.model.ArtWork;
+import com.example.api_calls_testing_android.model.Artwork;
 
 import java.util.List;
 
@@ -18,12 +17,12 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 
     private LayoutInflater inflater;
 
-    private List<ArtWork> artWorks;
+    private List<Artwork> artworks;
 
 
-    public HomeAdapter(Context context, List<ArtWork> artWorks) {
+    public HomeAdapter(Context context, List<Artwork> artworks) {
         inflater = LayoutInflater.from(context);
-        this.artWorks = artWorks;
+        this.artworks = artworks;
     }
 
 
@@ -37,7 +36,7 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull HomeViewHolder holder, int position) {
-        ArtWork artWork = artWorks.get(position);
+        Artwork artWork = artworks.get(position);
 /*
         String userName = artWork.getMessage()+" haha";
          +artWork.getPrimaryImage()
@@ -61,6 +60,6 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 
     @Override
     public int getItemCount() {
-        return artWorks.size();
+        return artworks.size();
     }
 }

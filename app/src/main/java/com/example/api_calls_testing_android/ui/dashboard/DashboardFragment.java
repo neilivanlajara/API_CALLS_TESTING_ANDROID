@@ -1,12 +1,12 @@
-package com.example.api_calls_testing_android.ui.listfollowers;
+package com.example.api_calls_testing_android.ui.dashboard;
 
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.textservice.TextInfo;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,16 +20,15 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.model.DepartmentInfo;
+import com.example.api_calls_testing_android.model.Artwork;
 
 import java.util.List;
 
-public class ListFollowers extends Fragment {
+public class DashboardFragment extends Fragment {
 
-    private ListFollowersViewModel listFollowersViewModel;
-    private ListFollowersAdapter listFollowersAdapter;
+    private DashboardViewModel dashboardViewModel;
+    private DashboardAdapter dashboardAdapter;
     private RecyclerView recyclerView;
 
     private String TAG = "ListFollowers";
@@ -37,13 +36,15 @@ public class ListFollowers extends Fragment {
     private GridLayoutManager layoutManager;
 
     private EditText editText;
+
+    private TextView scrittaTAG = null;
     private ImageView logo;
 
 
 
 
-    public static ListFollowers newInstance() {
-        return new ListFollowers();
+    public static DashboardFragment newInstance() {
+        return new DashboardFragment();
     }
 
 
@@ -64,8 +65,8 @@ public class ListFollowers extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        this.listFollowersViewModel = new ViewModelProvider(this).get(ListFollowersViewModel.class);
-        listFollowersViewModel.feedUserListFollowerBuffer();
+        this.dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
+        dashboardViewModel.feedArtworkBuffer();
         layoutManager = new GridLayoutManager(getContext(), 2);
 
 
@@ -96,7 +97,8 @@ public class ListFollowers extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         logo = getView().findViewById(R.id.logo_MET);
-
+        scrittaTAG = getView().findViewById(R.id.labelTextContext);
+        scrittaTAG.setText("Highlights: ");
         logo.setOnClickListener( v ->{
             Toast.makeText(getContext(), "ciaoo", Toast.LENGTH_SHORT).show();
 
@@ -107,14 +109,6 @@ public class ListFollowers extends Fragment {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        Log.d("onDestroyView", "distrutto heheh");
-
-
-        listFollowersViewModel.destroyList();
-    }
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -129,14 +123,14 @@ public class ListFollowers extends Fragment {
         viewPager = getView().findViewById(R.id.viewPagerListFollower);
 */
 
-        List<DepartmentInfo> e =     listFollowersViewModel.getUserListFollowerBuffer().getValue();
+        List<Artwork> e =     dashboardViewModel.getArtworkList().getValue();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
-            listFollowersAdapter = new ListFollowersAdapter(getActivity(),e , getActivity().getMainExecutor() );
+            dashboardAdapter = new DashboardAdapter(getActivity(),e , getActivity().getMainExecutor() );
         }
 
-        listFollowersViewModel.getUserListFollowerBuffer().observe(getActivity(), v->{
+        dashboardViewModel.getArtworkList().observe(getActivity(), v->{
 
-            listFollowersAdapter.notifyItemInserted( listFollowersViewModel.getUserListFollowerBuffer().getValue().size()-1);
+            dashboardAdapter.notifyItemInserted( dashboardViewModel.getArtworkList().getValue().size()-1);
         });
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -152,7 +146,7 @@ public class ListFollowers extends Fragment {
 */
 
 
-        recyclerView.setAdapter(listFollowersAdapter);
+        recyclerView.setAdapter(dashboardAdapter);
 
     }
 
