@@ -6,6 +6,15 @@ public class DepartmentInfo {
     @SerializedName("departmentId")
     private int departmentId;
 
+    private String img;
+
+    public String getImg() {
+        return img;
+    }
+
+    public void setImg(String img) {
+        this.img = img;
+    }
 
     @SerializedName("displayName")
     private String displayName;

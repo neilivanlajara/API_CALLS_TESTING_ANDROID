@@ -13,19 +13,18 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.api_calls_testing_android.ui.dashboard.DashboardFragment"
+        android:name="com.example.api_calls_testing_android.ui.department.DepartmentFragment"
         android:label="@string/title_dashboard"
         tools:layout="@layout/fragment_dashboard" />
-
-
-    <fragment
-        android:id="@+id/navigation_artworkList"
-        android:name="com.example.api_calls_testing_android.ArtworrkListFragment"
-        android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list" />
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.api_calls_testing_android.department_list.DepartmentListFragment"
+        android:name="com.example.api_calls_testing_android.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_item_list2" />
+        tools:layout="@layout/fragment_notifications" />
+    <fragment
+        android:id="@+id/navigation_listFollowers"
+        android:name="com.example.api_calls_testing_android.ui.listfollowers.ListFollowers"
+        android:label="Art departments" />
+
+
 </navigation>
