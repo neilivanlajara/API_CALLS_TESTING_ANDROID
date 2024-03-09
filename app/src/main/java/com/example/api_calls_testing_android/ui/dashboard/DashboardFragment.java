@@ -22,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.model.Artwork;
+import androidx.appcompat.widget.SearchView;
 
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class DashboardFragment extends Fragment {
 
     private GridLayoutManager layoutManager;
 
-    private EditText editText;
+    private SearchView editText;
 
     private TextView scrittaTAG = null;
     private ImageView logo;
@@ -73,7 +74,7 @@ public class DashboardFragment extends Fragment {
 
 
 
-        return inflater.inflate(R.layout.fragmemt_department, container, false);
+        return inflater.inflate(R.layout.fragment_dashboard, container, false);
     }
 
 /*
@@ -97,14 +98,13 @@ public class DashboardFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         logo = getView().findViewById(R.id.logo_MET);
-        scrittaTAG = getView().findViewById(R.id.labelTextContext);
-        scrittaTAG.setText("Highlights: ");
+
         logo.setOnClickListener( v ->{
             Toast.makeText(getContext(), "ciaoo", Toast.LENGTH_SHORT).show();
 
         });
 
-        editText = getView().findViewById(R.id.search_bar_dep);
+        editText = getView().findViewById(R.id.searchView);
 
 
     }

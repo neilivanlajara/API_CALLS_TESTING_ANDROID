@@ -33,7 +33,7 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentViewHolder
     @NonNull
     @Override
     public DepartmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.card_artwork_viewer, parent, false);
+        View view = inflater.inflate(R.layout.department_list_recycler_viewer, parent, false);
 
         return new DepartmentViewHolder(view);
     }

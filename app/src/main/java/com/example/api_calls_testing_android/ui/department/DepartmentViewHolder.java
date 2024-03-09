@@ -17,7 +17,6 @@ public class DepartmentViewHolder extends RecyclerView.ViewHolder {
 
 
     private final TextView userName;
-    private final TextView userID;
 
     private final ImageView userIMG;
     private ImageView userPicture;
@@ -25,8 +24,7 @@ public class DepartmentViewHolder extends RecyclerView.ViewHolder {
 
     public DepartmentViewHolder(@NonNull View itemView) {
         super(itemView);
-        userName = itemView.findViewById(R.id.DepartmentID);
-        userID = itemView.findViewById(R.id.DepartmentNAME);
+        userName = itemView.findViewById(R.id.DepartmentNAME);
         userIMG = itemView.findViewById(R.id.DepartmentIMG);
         args = new Bundle();
 
@@ -35,7 +33,6 @@ public class DepartmentViewHolder extends RecyclerView.ViewHolder {
 
     public void updateContent( String userName, int pversion,String pic){
         this.userName.setText(userName);
-        this.userID.setText(Integer.toString(pversion));
 
         //temporaneo
 /*

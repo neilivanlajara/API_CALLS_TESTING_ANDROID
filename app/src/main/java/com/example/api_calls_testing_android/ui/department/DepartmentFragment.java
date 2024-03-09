@@ -100,7 +100,7 @@ public class DepartmentFragment extends Fragment {
 
         });
 
-        editText = getView().findViewById(R.id.search_bar_dep);
+        editText = getView().findViewById(R.id.searchView);
 
 
     }
@@ -121,7 +121,7 @@ public class DepartmentFragment extends Fragment {
         Log.d("LISTFOLLOWERS", "onActivityCreated: ");
         recyclerView = getView().findViewById(R.id.contactsRecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 2);
+        RecyclerView.LayoutManager mLayoutManager = new GridLayoutManager(getContext(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
 /*
         viewPager = getView().findViewById(R.id.viewPagerListFollower);
