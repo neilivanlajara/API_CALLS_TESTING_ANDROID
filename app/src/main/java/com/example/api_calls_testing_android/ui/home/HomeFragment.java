@@ -39,7 +39,6 @@ public class HomeFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ((MainActivity) requireActivity()).getSupportActionBar().hide();
 
-
         homeViewModel = new ViewModelProvider(this).get(HomeViewModel.class);
         viewPager = getView().findViewById(R.id.viewPager);
         homeAdapter = new HomeAdapter(getActivity(), homeViewModel.getArtWorkBuffer().getValue());

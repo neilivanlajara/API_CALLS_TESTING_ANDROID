@@ -17,6 +17,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:itemIconTint="#9E011D"
+        app:itemTextColor="#9E011D"
+
+
         app:menu="@menu/bottom_nav_menu" />
 
     <fragment

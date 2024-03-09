@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.model. Artwork;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 */
 
 
-            holder.updateContent(artWork.getConstituents().get(0).getName()+""+artWork.getPrimaryImageSmall().length(), artWork.getPrimaryImageSmall(),artWork.getTitle());
+            holder.updateContent(artWork.getConstituents().get(0).getName()+""+artWork.getPrimaryImageSmall().length(), artWork.getPrimaryImageSmall(),artWork.getTitle(),artWork.getAccessionYear());
 
 
      /*   if (artWork.getMessage() != "ObjectID not found"){
