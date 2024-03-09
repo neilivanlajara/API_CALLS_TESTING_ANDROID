@@ -1,4 +1,4 @@
-package com.example.api_calls_testing_android.ui.listfollowers;
+package com.example.api_calls_testing_android.ui.department;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -15,7 +15,7 @@ import com.example.api_calls_testing_android.model.DepartmentInfo;
 import java.util.List;
 import java.util.concurrent.Executor;
 
-public class ListFollowersAdapter extends RecyclerView.Adapter<ListFollowersViewHolder> {
+public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentViewHolder> {
     private LayoutInflater inflater;
     private final Executor executor;
 
@@ -23,7 +23,7 @@ public class ListFollowersAdapter extends RecyclerView.Adapter<ListFollowersView
 
 
 
-    public ListFollowersAdapter(Context context, List<DepartmentInfo> users, Executor executor) {
+    public DepartmentAdapter(Context context, List<DepartmentInfo> users, Executor executor) {
         inflater = LayoutInflater.from(context);
         this.users = users;
         this.executor = executor;
@@ -32,14 +32,14 @@ public class ListFollowersAdapter extends RecyclerView.Adapter<ListFollowersView
 
     @NonNull
     @Override
-    public ListFollowersViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = inflater.inflate(R.layout.card_artwork_viewer, parent, false);
+    public DepartmentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = inflater.inflate(R.layout.department_list_recycler_viewer, parent, false);
 
-        return new ListFollowersViewHolder(view);
+        return new DepartmentViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ListFollowersViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull DepartmentViewHolder holder, int position) {
         DepartmentInfo singleDep = users.get(position);
         holder.updateContent(singleDep.getDisplayName(),singleDep.getDepartmentId(), singleDep.getImg() );
     }

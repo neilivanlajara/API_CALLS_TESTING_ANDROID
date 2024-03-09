@@ -1,7 +1,7 @@
 package com.example.api_calls_testing_android.repository;
 
-import com.example.api_calls_testing_android.model.ArtWork;
+import com.example.api_calls_testing_android.model.Artwork;
 
 public interface OnArtworkReady {
-    public void onArtworkReady(ArtWork artWork);
+    public void onArtworkReady(Artwork artWork);
 }

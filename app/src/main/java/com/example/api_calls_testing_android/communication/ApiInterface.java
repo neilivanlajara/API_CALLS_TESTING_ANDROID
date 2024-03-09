@@ -1,10 +1,9 @@
 package com.example.api_calls_testing_android.communication;
 
-import com.example.api_calls_testing_android.model.ArtWork;
+import com.example.api_calls_testing_android.model.Artwork;
 import com.example.api_calls_testing_android.model.WholeDepartmentList;
 
 import retrofit2.Call;
-import java.util.Random;
 
 import retrofit2.http.GET;
 import retrofit2.http.Url;
@@ -13,7 +12,7 @@ public interface ApiInterface {
 
 
     @GET
-    Call<ArtWork> getObject(@Url String url);
+    Call<Artwork> getObject(@Url String url);
 
     @GET
     Call<WholeDepartmentList> getWholeDepartmentList(@Url String url);

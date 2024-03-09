@@ -1,13 +1,11 @@
 package com.example.api_calls_testing_android.communication;
 import android.util.Log;
 
-import com.example.api_calls_testing_android.model.ArtWork;
+import com.example.api_calls_testing_android.model.Artwork;
 import com.example.api_calls_testing_android.model.WholeDepartmentList;
 import com.example.api_calls_testing_android.repository.FailedToCommunicate;
 import com.example.api_calls_testing_android.repository.OnArtworkReady;
 import com.example.api_calls_testing_android.repository.OnWholeDepartmentListReady;
-
-import java.util.Random;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -45,9 +43,9 @@ public class CommunicationAPI {
             });
     }
     public static void getObject(int ArtWorkID, OnArtworkReady onObjectReady, FailedToCommunicate failedToCommunicate){
-        getInstanceOfCommunicator().getObject( Integer.toString(ArtWorkID)).enqueue(new Callback<ArtWork>() {
+        getInstanceOfCommunicator().getObject( Integer.toString(ArtWorkID)).enqueue(new Callback<Artwork>() {
             @Override
-            public void onResponse(Call<ArtWork> call, Response<ArtWork> response) {
+            public void onResponse(Call<Artwork> call, Response<Artwork> response) {
                 try{
                     onObjectReady.onArtworkReady(response.body());
 
@@ -58,7 +56,7 @@ public class CommunicationAPI {
             }
 
             @Override
-            public void onFailure(Call<ArtWork> call, Throwable t) {
+            public void onFailure(Call<Artwork> call, Throwable t) {
                 Log.d(TAG, "onResponse: fallito");
 
             }
