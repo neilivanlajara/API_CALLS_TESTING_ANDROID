@@ -130,6 +130,7 @@ public class DashboardFragment extends Fragment {
 
         dashboardViewModel.getArtworkList().observe(getActivity(), v->{
 
+
             dashboardAdapter.notifyItemInserted( dashboardViewModel.getArtworkList().getValue().size()-1);
         });
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
