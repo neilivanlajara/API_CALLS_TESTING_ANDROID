@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.model. Artwork;
 
 import java.util.List;
 
