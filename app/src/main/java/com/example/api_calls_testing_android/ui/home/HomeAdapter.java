@@ -45,7 +45,7 @@ public class HomeAdapter extends  RecyclerView.Adapter<HomeViewHolder>{
 */
 
 
-            holder.updateContent(artWork.getConstituents().get(0).getName()+""+artWork.getPrimaryImageSmall().length(), artWork.getPrimaryImageSmall(),artWork.getTitle(),artWork.getAccessionYear());
+            holder.updateContent(artWork.getConstituents().get(0).getName(), artWork.getPrimaryImageSmall(),artWork.getTitle(),artWork.getAccessionYear());
 
 
      /*   if (artWork.getMessage() != "ObjectID not found"){

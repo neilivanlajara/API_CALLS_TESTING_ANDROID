@@ -24,7 +24,7 @@
             android:layout_height="wrap_content">
 
                 <ImageView
-                    android:id="@+id/DepartmentIMG"
+                    android:id="@+id/imageArtwok"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
@@ -38,7 +38,7 @@
 
 
                 <TextView
-                    android:id="@+id/DepartmentID"
+                    android:id="@+id/titleArtwork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
@@ -48,7 +48,7 @@
                     android:gravity="bottom"
                     android:shadowColor="@color/material_dynamic_neutral90"
 
-                    app:layout_constraintStart_toEndOf="@+id/DepartmentIMG"
+                    app:layout_constraintStart_toEndOf="@+id/imageArtwok"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
@@ -69,7 +69,7 @@
             android:padding="8dp">
 
                 <TextView
-                    android:id="@+id/DepartmentNAME"
+                    android:id="@+id/artistNameArtwork"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Nome dell'artista"

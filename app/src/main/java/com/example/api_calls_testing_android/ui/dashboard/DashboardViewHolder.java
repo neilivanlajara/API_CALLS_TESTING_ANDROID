@@ -15,26 +15,26 @@ import com.example.api_calls_testing_android.R;
 public class DashboardViewHolder extends RecyclerView.ViewHolder{
 
 
-    private final TextView userName;
-    private final TextView userID;
+    private final TextView titleArtwork;
+    private final TextView artistNameArtwork;
 
-    private final ImageView userIMG;
+    private final ImageView imageArtwork;
     private ImageView userPicture;
     private final Bundle args;
 
     public DashboardViewHolder(@NonNull View itemView) {
         super(itemView);
-        userName = itemView.findViewById(R.id.DepartmentID);
-        userID = itemView.findViewById(R.id.DepartmentNAME);
-        userIMG = itemView.findViewById(R.id.DepartmentIMG);
+        titleArtwork = itemView.findViewById(R.id.titleArtwork);
+        artistNameArtwork = itemView.findViewById(R.id.artistNameArtwork);
+        imageArtwork = itemView.findViewById(R.id.imageArtwok);
         args = new Bundle();
 
 
     }
 
-    public void updateContent( String userName, String pversion,String pic){
-        this.userName.setText(userName);
-        this.userID.setText((pversion));
+    public void updateContent( String titleArtwork, String artistNameArtwork,String pic){
+        this.artistNameArtwork.setText(artistNameArtwork);
+        this.titleArtwork.setText((titleArtwork));
 
         //temporaneo
 /*
@@ -43,7 +43,7 @@ public class DashboardViewHolder extends RecyclerView.ViewHolder{
 
         Glide.with(itemView.getContext())
                 .load(pic)
-                .into(userIMG);
+                .into(imageArtwork);
 
     }
 
