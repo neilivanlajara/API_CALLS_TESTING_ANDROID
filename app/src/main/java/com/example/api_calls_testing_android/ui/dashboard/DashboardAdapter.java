@@ -51,4 +51,8 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
     public int getItemCount() {
         return users.size();
     }
+
+    public void destroyList(){
+            users.removeAll(users);
+    }
 }

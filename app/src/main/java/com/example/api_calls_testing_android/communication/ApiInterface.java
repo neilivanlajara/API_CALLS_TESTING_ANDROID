@@ -1,6 +1,7 @@
 package com.example.api_calls_testing_android.communication;
 
 import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.model.SearchQuery;
 import com.example.api_calls_testing_android.model.WholeDepartmentList;
 
 import retrofit2.Call;
@@ -10,6 +11,10 @@ import retrofit2.http.Url;
 
 public interface ApiInterface {
 
+
+    //Search
+    @GET
+    Call<SearchQuery> getSearchQuery(@Url String url);
 
     @GET
     Call<Artwork> getObject(@Url String url);

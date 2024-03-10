@@ -18,23 +18,39 @@
         android:layout_height="60dp">
 
     </ImageView>
-    <androidx.appcompat.widget.SearchView
+   <!-- <androidx.appcompat.widget.SearchView
         android:id="@+id/searchView"
         android:layout_width="match_parent"
         android:text="Search an artwork, an artist, a gallery"
         android:layout_height="wrap_content"
+        android:background="@drawable/roundcorner"
+
         android:layout_centerVertical="true"
         android:layout_toRightOf="@+id/image_one_toolbar"
         />
+-->
 
-        <TextView
+    <!-- CardView per avvolgere il SearchView -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+
+        android:layout_marginTop="20dp">
+
+        <!-- SearchView con uno sfondo bianco e cornici tonde -->
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textStyle="normal"
-            android:layout_marginLeft="10dp"
-            android:textSize="35dp"
 
-            android:text="Highlights:  "/>
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/black"
+            app:iconifiedByDefault="true"
+            app:queryHint="Search an artwork, an artist, a gallery"/>
+    </androidx.cardview.widget.CardView>
+
+
 
 <!--    <EditText
         android:id="@+id/search_bar_dep"

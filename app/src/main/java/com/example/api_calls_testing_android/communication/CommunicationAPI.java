@@ -2,9 +2,11 @@ package com.example.api_calls_testing_android.communication;
 import android.util.Log;
 
 import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.model.SearchQuery;
 import com.example.api_calls_testing_android.model.WholeDepartmentList;
 import com.example.api_calls_testing_android.repository.FailedToCommunicate;
 import com.example.api_calls_testing_android.repository.OnArtworkReady;
+import com.example.api_calls_testing_android.repository.OnSearchQueryReady;
 import com.example.api_calls_testing_android.repository.OnWholeDepartmentListReady;
 
 import retrofit2.Call;
@@ -42,6 +44,28 @@ public class CommunicationAPI {
                 }
             });
     }
+
+    public static void getSearchQuery(String query, OnSearchQueryReady onSearchQueryReady, FailedToCommunicate failedToCommunicate){
+        String urlQuery = "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=";
+        query.replace(" ", "+");
+
+        getInstanceOfCommunicator().getSearchQuery(urlQuery+query   ).enqueue(
+                new Callback<SearchQuery>() {
+                    @Override
+                    public void onResponse(Call<SearchQuery> call, Response<SearchQuery> response) {
+                        Log.d(TAG, "onResponse: "+ response.body().getTotal()    );
+                        onSearchQueryReady.onSearchQueryReady(response.body());
+                    }
+
+                    @Override
+                    public void onFailure(Call<SearchQuery> call, Throwable t) {
+                        Log.d(TAG, "onFailure: in searchQuery");
+                    }
+                }
+
+        );
+    }
+
     public static void getObject(int ArtWorkID, OnArtworkReady onObjectReady, FailedToCommunicate failedToCommunicate){
         getInstanceOfCommunicator().getObject( Integer.toString(ArtWorkID)).enqueue(new Callback<Artwork>() {
             @Override

@@ -6,8 +6,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.textservice.TextInfo;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +20,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.repository.GetSearchQueryRepository;
+
 import androidx.appcompat.widget.SearchView;
 
 import java.util.List;
@@ -36,7 +36,7 @@ public class DashboardFragment extends Fragment {
 
     private GridLayoutManager layoutManager;
 
-    private SearchView editText;
+    private SearchView searchView;
 
     private TextView scrittaTAG = null;
     private ImageView logo;
@@ -104,10 +104,41 @@ public class DashboardFragment extends Fragment {
 
         });
 
-        editText = getView().findViewById(R.id.searchView);
+        searchView = getView().findViewById(R.id.searchView);
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+/*
+                Log.d(TAG, "onQueryTextSubmit: "+ query);
+
+*/
+                performSearchQueryRequest(query);
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                Log.d(TAG, "onQueryTextChange: "+ newText);
+
+                return false;
+            }
+        });
 
 
     }
+    private void performSearchQueryRequest(String query) {
+        // Esegui la tua chiamata di rete qui, ad esempio con Retrofit, AsyncTask, ecc.
+        // Sostituisci questo con la tua logica di chiamata di rete reale
+
+        GetSearchQueryRepository.getSearchQueryRepository(query,res->{
+              Toast.makeText(getActivity(), "Esegui chiamata di rete con: " + query, Toast.LENGTH_SHORT).show();
+              //provo a togliere la lista highlights
+            dashboardViewModel.feedArtworkByQuery(res.getArtworks());
+        }, ()->{});
+    }
+
+
 
 
     @Override
