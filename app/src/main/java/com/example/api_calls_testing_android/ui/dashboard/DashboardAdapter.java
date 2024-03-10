@@ -51,6 +51,18 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
     public int getItemCount() {
         return users.size();
     }
+    public void setArtworkList(List<Artwork> artworkList) {
+        this.users = artworkList;
+        notifyDataSetChanged();
+    }
+
+    // Metodo per rimuovere un'opera d'arte dalla lista
+    public void removeArtwork(int position) {
+        if (users != null && position >= 0 && position < users.size()) {
+            users.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
 
     public void destroyList(){
             users.removeAll(users);

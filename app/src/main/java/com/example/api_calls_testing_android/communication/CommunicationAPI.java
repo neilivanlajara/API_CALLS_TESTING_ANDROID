@@ -54,7 +54,11 @@ public class CommunicationAPI {
                     @Override
                     public void onResponse(Call<SearchQuery> call, Response<SearchQuery> response) {
                         Log.d(TAG, "onResponse: "+ response.body().getTotal()    );
-                        onSearchQueryReady.onSearchQueryReady(response.body());
+                        try {
+                            onSearchQueryReady.onSearchQueryReady(response.body());
+                        } catch (Exception e) {
+                            throw new RuntimeException(e);
+                        }
                     }
 
                     @Override

@@ -28,12 +28,38 @@ public class DashboardViewModel extends AndroidViewModel {
 
     public DashboardViewModel(@NonNull Application application) {
         super(application);
+        feedArtworkBuffer();
+    }
+
+    public void removeArtwork(Artwork artworkToRemove) {
+        List<Artwork> currentList = artworkList.getValue();
+        if (currentList != null) {
+            currentList.remove(artworkToRemove);
+            artworkList.setValue(currentList);
+        }
+    }
+
+
+
+    //bravo ivan
+    public void removeCurrentListArtwork(){
+
+        int index = artworkList.getValue().size()-1;
+        while(index >= 0 ){
+            removeArtwork(artworkList.getValue().get(0));
+            index--;
+        }
+
     }
 
     public void feedArtworkByQuery(List<Integer> searchQuery){
+        int index = 0;
+        removeCurrentListArtwork();
+
         for (AtomicInteger indexRequest = new AtomicInteger(0); indexRequest.get()< 4; indexRequest.set(indexRequest.get()+1)) {
 
-            indexArtworkToExtractFromArray.set(new Random().nextInt(searchQuery.size()) + 1);
+            indexArtworkToExtractFromArray.set(index);
+            index++;
             GetArtworkRepository.getObject(
                     searchQuery.get(indexArtworkToExtractFromArray.get()),
                     artwork->{
@@ -43,9 +69,9 @@ public class DashboardViewModel extends AndroidViewModel {
                             try {
                                 Log.d("please", artwork.getConstituents().get(0).getName() + "" + artwork.getPrimaryImageSmall().length() + " " + artwork.getPrimaryImageSmall() + "" + artwork.getTitle() + "" + "feedArtworkBuffer:  " + indexArtworkToExtractFromArray.get() + "<->" + artwork.getObjectID() + "<->" + artwork.isHighLight() + "<->" + artwork.getPrimaryImageSmall() + " " + artwork.getPeriod());
                                 if (artwork.getPrimaryImageSmall().length() > 0) {
-
                                     Objects.requireNonNull(artworkList.getValue()).add(artwork);
                                     artworkList.setValue(artworkList.getValue());
+
                                 }
 
 

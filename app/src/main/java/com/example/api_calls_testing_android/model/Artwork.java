@@ -6,6 +6,11 @@ import java.util.List;
 
 public class Artwork {
 
+
+    public Artwork(String title) {
+        this.title = title;
+    }
+
     @SerializedName("period")
     private String period;
 

@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -20,6 +21,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.model.Artwork;
+import com.example.api_calls_testing_android.model.SearchQuery;
 import com.example.api_calls_testing_android.repository.GetSearchQueryRepository;
 
 import androidx.appcompat.widget.SearchView;
@@ -67,7 +69,6 @@ public class DashboardFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
         this.dashboardViewModel = new ViewModelProvider(this).get(DashboardViewModel.class);
-        dashboardViewModel.feedArtworkBuffer();
         layoutManager = new GridLayoutManager(getContext(), 2);
 
 
@@ -130,12 +131,22 @@ public class DashboardFragment extends Fragment {
     private void performSearchQueryRequest(String query) {
         // Esegui la tua chiamata di rete qui, ad esempio con Retrofit, AsyncTask, ecc.
         // Sostituisci questo con la tua logica di chiamata di rete reale
+      Toast.makeText(getActivity(), "Cercando: " + query, Toast.LENGTH_SHORT).show();
 
         GetSearchQueryRepository.getSearchQueryRepository(query,res->{
-              Toast.makeText(getActivity(), "Esegui chiamata di rete con: " + query, Toast.LENGTH_SHORT).show();
+                checkEmptySearchQuery(res);
               //provo a togliere la lista highlights
-            dashboardViewModel.feedArtworkByQuery(res.getArtworks());
         }, ()->{});
+    }
+
+    private void checkEmptySearchQuery(SearchQuery searchQuery) throws Exception{
+            try{
+                dashboardViewModel.feedArtworkByQuery(searchQuery.getArtworks());
+
+            }catch (NullPointerException | IndexOutOfBoundsException q){
+                Toast.makeText(getActivity(), "Nessun risultato " , Toast.LENGTH_SHORT).show();
+
+            }
     }
 
 
@@ -159,10 +170,15 @@ public class DashboardFragment extends Fragment {
             dashboardAdapter = new DashboardAdapter(getActivity(),e , getActivity().getMainExecutor() );
         }
 
-        dashboardViewModel.getArtworkList().observe(getActivity(), v->{
+        dashboardViewModel.getArtworkList().observe(getActivity(), new Observer<List<Artwork>>() {
+            @Override //grazie a questo riesco a cancellare i vecchi risultati, ogni volta che modifico il model
+            //devo anche notificare l'adapter altrimenti crasha
+            public void onChanged(List<Artwork> artworks) {
+                dashboardAdapter.setArtworkList(artworks);
+
+            }
 
 
-            dashboardAdapter.notifyItemInserted( dashboardViewModel.getArtworkList().getValue().size()-1);
         });
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
@@ -176,6 +192,7 @@ public class DashboardFragment extends Fragment {
 /*
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL, false));
 */
+
 
 
         recyclerView.setAdapter(dashboardAdapter);
