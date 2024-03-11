@@ -113,8 +113,11 @@ public class DashboardFragment extends Fragment {
 /*
                 Log.d(TAG, "onQueryTextSubmit: "+ query);
 
-*/
-                performSearchQueryRequest(query);
+*/              if(query.equals("highlights")){
+                    dashboardViewModel.feedArtworkBuffer();
+                }else{
+                    performSearchQueryRequest(query);
+                }
                 return false;
             }
 
@@ -169,17 +172,31 @@ public class DashboardFragment extends Fragment {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             dashboardAdapter = new DashboardAdapter(getActivity(),e , getActivity().getMainExecutor() );
         }
+        if (dashboardAdapter.getItemCount() <= 10) {
+            dashboardViewModel.feedArtworkBuffer();
+            dashboardAdapter.notifyDataSetChanged();
+        }
 
-        dashboardViewModel.getArtworkList().observe(getActivity(), new Observer<List<Artwork>>() {
+        dashboardViewModel.getArtworkList().observe(getViewLifecycleOwner(), new Observer<List<Artwork>>() {
             @Override //grazie a questo riesco a cancellare i vecchi risultati, ogni volta che modifico il model
             //devo anche notificare l'adapter altrimenti crasha
             public void onChanged(List<Artwork> artworks) {
                 dashboardAdapter.setArtworkList(artworks);
+                    Log.d(TAG, "onChanged: dashboardAdapter"+dashboardAdapter.getItemCount());
+
 
             }
 
-
         });
+    /*    dashboardViewModel.getArtworkList().observe(getViewLifecycleOwner(),v->{
+            if (dashboardAdapter.getItemCount() < 2) {
+                dashboardViewModel.feedArtworkBuffer();
+                dashboardAdapter.notifyDataSetChanged();
+
+
+            }
+
+        });*/
         recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
             @Override
             public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int newState) {
@@ -198,5 +215,7 @@ public class DashboardFragment extends Fragment {
         recyclerView.setAdapter(dashboardAdapter);
 
     }
+
+
 
 }

@@ -47,6 +47,7 @@ public class DashboardViewHolder extends RecyclerView.ViewHolder{
 
     }
 
+
     public void updateUserPicture(Bitmap userPicture){
 
         int desiredWidth = 200;

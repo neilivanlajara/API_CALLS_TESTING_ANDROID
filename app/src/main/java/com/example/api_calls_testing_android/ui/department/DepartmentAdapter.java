@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.example.api_calls_testing_android.R;
+import com.example.api_calls_testing_android.model.Artwork;
 import com.example.api_calls_testing_android.model.DepartmentInfo;
 
 import java.util.List;
@@ -43,6 +44,11 @@ public class DepartmentAdapter extends RecyclerView.Adapter<DepartmentViewHolder
         DepartmentInfo singleDep = users.get(position);
         holder.updateContent(singleDep.getDisplayName(),singleDep.getDepartmentId(), singleDep.getImg() );
     }
+
+    public void updateData(List<DepartmentInfo> users) {
+        this.users = users;
+    }
+
 
 
 

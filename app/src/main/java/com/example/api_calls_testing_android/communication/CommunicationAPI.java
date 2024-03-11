@@ -9,6 +9,9 @@ import com.example.api_calls_testing_android.repository.OnArtworkReady;
 import com.example.api_calls_testing_android.repository.OnSearchQueryReady;
 import com.example.api_calls_testing_android.repository.OnWholeDepartmentListReady;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -45,8 +48,28 @@ public class CommunicationAPI {
             });
     }
 
+    public static void getArtworkFromDepartment(int departmentNumber, OnSearchQueryReady onSearchQueryReady, FailedToCommunicate failedToCommunicate){
+        String urlQuery = "https://collectionapi.metmuseum.org/public/collection/v1/objects?departmentIds=" +departmentNumber;
+
+        getInstanceOfCommunicator().getSearchQuery(urlQuery).enqueue(new Callback<SearchQuery>() {
+            @Override
+            public void onResponse(Call<SearchQuery> call, Response<SearchQuery> response) {
+                try {
+                    onSearchQueryReady.onSearchQueryReady(response.body());
+                } catch (Exception e) {
+                    throw new RuntimeException(e);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<SearchQuery> call, Throwable t) {
+                Log.d(TAG, "onFailure: in getArtworkFromDepartment");
+
+            }
+        });
+    }
     public static void getSearchQuery(String query, OnSearchQueryReady onSearchQueryReady, FailedToCommunicate failedToCommunicate){
-        String urlQuery = "https://collectionapi.metmuseum.org/public/collection/v1/search?hasImages=true&q=";
+        String urlQuery = "https://collectionapi.metmuseum.org/public/collection/v1/search?isHighlight=true&hasImages=true&artistOrCulture=true&q=";
         query.replace(" ", "+");
 
         getInstanceOfCommunicator().getSearchQuery(urlQuery+query   ).enqueue(
@@ -75,6 +98,7 @@ public class CommunicationAPI {
             @Override
             public void onResponse(Call<Artwork> call, Response<Artwork> response) {
                 try{
+
                     onObjectReady.onArtworkReady(response.body());
 
                 }catch (NullPointerException e){

@@ -1,6 +1,7 @@
 package com.example.api_calls_testing_android.ui.dashboard;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,4 +68,9 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
     public void destroyList(){
             users.removeAll(users);
     }
+
+    public void getItem(int id){
+        Log.d("getItem", "getItem: "+ users.get(id).getPrimaryImageSmall());
+    }
+
 }
