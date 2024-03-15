@@ -14,9 +14,12 @@ import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.api_calls_testing_android.R;
 
+import java.util.Arrays;
+
 public class HomeViewHolder extends RecyclerView.ViewHolder {
 
     private TextView artistArtworkPeriod = null;
+    private ImageView imageView = null;
     private TextView artYear= null;
 
     public HomeViewHolder(@NonNull View itemView) {
@@ -25,27 +28,38 @@ public class HomeViewHolder extends RecyclerView.ViewHolder {
 
         artYear = itemView.findViewById(R.id.yearTextView);
 
+        imageView = itemView.findViewById(R.id.imageHome);
 
     }
 
     public void updateContent(String artistName, String url, String title, String accessionYear){
+        title = textCleaner(title);
+        artistName = textCleaner(artistName);
 
         this.artistArtworkPeriod.setText(title);
         this.artYear.setText(artistName+" , "+ accessionYear);
         Glide.with(itemView.getContext())
                 .load(url)
-             //   .into(artistWorkImage);
-                .into(new CustomTarget<Drawable>() {
+                .into(imageView);
+             /*   .into(new CustomTarget<Drawable>() {
                     @Override
                     public void onResourceReady(@NonNull Drawable resource, @Nullable Transition<? super Drawable> transition) {
                         itemView.setBackground(resource);
+
                     }
 
                     @Override
                     public void onLoadCleared(@Nullable Drawable placeholder) {
                         // Can be empty
                     }
-                });
+                });*/
 
+    }
+
+    private String textCleaner(String inputString){
+        inputString = inputString.replace("\"", "");
+        return  (inputString.length() > 50)
+                ? String.join(" ", Arrays.copyOfRange(inputString.replaceAll("\\[.*?\\]|\\(.*?\\)", "").split("\\s+"), 0, 8))
+                : inputString.replaceAll("\\[.*?\\]|\\(.*?\\)", "");
     }
 }

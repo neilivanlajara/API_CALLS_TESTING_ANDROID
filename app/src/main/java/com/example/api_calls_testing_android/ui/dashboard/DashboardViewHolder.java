@@ -45,6 +45,7 @@ public class DashboardViewHolder extends RecyclerView.ViewHolder{
                 .load(pic)
                 .into(imageArtwork);
 
+
     }
 
 
