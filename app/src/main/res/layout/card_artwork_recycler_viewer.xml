@@ -1,14 +1,3 @@
-
-
-<!--
-        galleryNumber
-        artist
-        title
-        image
-
--->
-
-
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="156dp"
@@ -16,8 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="20dp"
-
     android:layout_margin="5dp">
+
         <!-- Immagine del quadro -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -29,60 +18,71 @@
                     android:layout_height="wrap_content"
                     android:scaleType="centerCrop"
                     android:background="@drawable/not_avail"
-
-
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
 
+                    />
+
+
+                <!-- Nome dell'artista in basso con sfondo bianco -->
 
                 <TextView
                     android:id="@+id/titleArtwork"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-
                     android:autoSizeMaxTextSize="@dimen/text_margin"
                     android:fontFamily="@font/roboto"
                     android:gravity="bottom"
                     android:shadowColor="@color/material_dynamic_neutral90"
-
-                    app:layout_constraintStart_toEndOf="@+id/imageArtwok"
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:text="Nome del quadro"
                     android:textColor="@android:color/white"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toTopOf="@+id/artistNameArtwork"
+                    tools:layout_editor_absoluteX="8dp" />
 
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <!-- Nome dell'artista in basso con sfondo bianco -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_gravity="bottom"
-            android:background="@android:color/white"
-            android:padding="8dp">
+                <TextView
+                    android:id="@+id/fromWhatDepartment"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:autoSizeMaxTextSize="@dimen/text_margin"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="bottom"
+                    android:shadowColor="@color/material_dynamic_neutral90"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:text="department"
+                    android:textColor="@android:color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintTop_toTopOf="@+id/imageArtwok"
+                    tools:layout_editor_absoluteX="8dp" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                        android:visibility="invisible"
+                        android:id="@+id/artID"
+                    tools:ignore="MissingConstraints" />
 
                 <TextView
                     android:id="@+id/artistNameArtwork"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Nome dell'artista"
+                    android:background="@android:color/white"
                     android:fontFamily="@font/roboto"
-
+                    android:padding="8dp"
+                    android:text="Nome dell'artista"
                     android:textColor="@android:color/black"
-                    android:textSize="16sp" />
-        </LinearLayout>
+                    android:textSize="16sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
 
-
-        <!-- Nome del quadro sovrapposto all'immagine -->
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 </androidx.cardview.widget.CardView>

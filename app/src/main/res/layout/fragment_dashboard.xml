@@ -46,7 +46,7 @@
 
             android:layout_height="wrap_content"
             android:textColor="@android:color/black"
-            app:iconifiedByDefault="true"
+            app:iconifiedByDefault="false"
             app:queryHint="Search an artwork, an artist, a gallery"/>
     </androidx.cardview.widget.CardView>
 

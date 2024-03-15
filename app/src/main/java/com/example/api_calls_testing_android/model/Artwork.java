@@ -10,6 +10,16 @@ public class Artwork {
     public Artwork(String title) {
         this.title = title;
     }
+    @SerializedName("department")
+    private String department;
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
 
     @SerializedName("period")
     private String period;

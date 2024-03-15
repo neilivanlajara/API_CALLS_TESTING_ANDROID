@@ -42,7 +42,7 @@ public class DashboardAdapter extends RecyclerView.Adapter<DashboardViewHolder> 
     @Override
     public void onBindViewHolder(@NonNull DashboardViewHolder holder, int position) {
         Artwork singleDep = users.get(position);
-        holder.updateContent(singleDep.getTitle(),singleDep.getConstituents().get(0).getName(), singleDep.getPrimaryImageSmall());
+        holder.updateContent(singleDep.getTitle(),singleDep.getConstituents().get(0).getName(), singleDep.getPrimaryImageSmall(), singleDep.getObjectID(), singleDep.getDepartment());
     }
 
 
