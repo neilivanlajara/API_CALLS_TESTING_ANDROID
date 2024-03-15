@@ -25,6 +25,7 @@ import com.bumptech.glide.Glide;
 import com.example.api_calls_testing_android.R;
 import com.example.api_calls_testing_android.databinding.FragmentOnlyArtBinding;
 import com.example.api_calls_testing_android.repository.GetArtworkRepository;
+import com.github.chrisbanes.photoview.PhotoView;
 
 
 public class OnlyArtFragment extends Fragment {
@@ -32,7 +33,7 @@ public class OnlyArtFragment extends Fragment {
 
     private final String TAG = "OnlyArt";
     private TextView artistArtworkPeriod = null;
-    private ImageView imageView = null;
+    private PhotoView imageView = null;
     private TextView artYear= null;
 
 

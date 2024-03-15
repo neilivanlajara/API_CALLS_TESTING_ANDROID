@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:background="#4B382A"
     android:scaleType="centerCrop"
@@ -47,13 +48,19 @@
 
 
     </LinearLayout>
-    <ImageView
+
+  <!--  <com.github.chrisbanes.photoview.PhotoView
+        android:id="@+id/photoView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitCenter"
+        tools:ignore="MissingClass" />-->
+    <com.github.chrisbanes.photoview.PhotoView
         android:layout_width="match_parent"
         android:id="@+id/imageHome"
         android:background="@color/black"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-    </ImageView>
 
 
 </LinearLayout>

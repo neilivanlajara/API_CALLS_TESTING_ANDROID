@@ -13,13 +13,14 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.CustomTarget;
 import com.bumptech.glide.request.transition.Transition;
 import com.example.api_calls_testing_android.R;
+import com.github.chrisbanes.photoview.PhotoView;
 
 import java.util.Arrays;
 
 public class HomeViewHolder extends RecyclerView.ViewHolder {
 
     private TextView artistArtworkPeriod = null;
-    private ImageView imageView = null;
+    private PhotoView imageView = null;
     private TextView artYear= null;
 
     public HomeViewHolder(@NonNull View itemView) {
