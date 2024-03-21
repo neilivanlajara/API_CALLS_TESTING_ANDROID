@@ -12,6 +12,16 @@ public class Artwork {
     }
     @SerializedName("department")
     private String department;
+    @SerializedName("GalleryNumber")
+    private String GalleryNumber;
+
+    public String getGalleryNumber() {
+        return GalleryNumber;
+    }
+
+    public void setGalleryNumber(String galleryNumber) {
+        GalleryNumber = galleryNumber;
+    }
 
     public String getDepartment() {
         return department;

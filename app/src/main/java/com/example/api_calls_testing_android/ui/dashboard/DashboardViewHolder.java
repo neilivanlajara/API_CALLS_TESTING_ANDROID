@@ -44,7 +44,14 @@ public class DashboardViewHolder extends RecyclerView.ViewHolder{
     public void updateContent( String titleArtwork, String artistNameArtwork,String pic, int id, String departmentName){
         this.artistNameArtwork.setText(artistNameArtwork);
         this.titleArtwork.setText((titleArtwork));
+/*
         this.departmentName.setText((departmentName));
+*/
+
+        if(departmentName.length()>0){
+            this.departmentName.setText("Gall. " + (departmentName));
+
+        }
         this.args.putInt("id",id);
 
         imageArtwork.setOnClickListener( v ->{
