@@ -16,7 +16,6 @@ public interface ApiInterface {
     @GET
     Call<SearchQuery> getSearchQuery(@Url String url);
 
-
     @GET
     Call<SearchQuery> getArtworkFromDepartment(@Url String url);
     @GET
