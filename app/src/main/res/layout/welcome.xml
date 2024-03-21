@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+ >
+    <!--background-->
+    <ImageView
+        android:layout_width="500dp"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:layout_gravity="center"
+        android:src="@drawable/welcome_bg" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        >
+
+        <!--Linear layout di benvenuto -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="top"
+            android:orientation="vertical"
+            android:layout_marginTop="70dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Welcome to"
+
+            android:textSize="40dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/austin_bold"
+            android:layout_gravity="center_horizontal"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="The MET"
+            android:textSize="60dp"
+            android:textColor="@android:color/white"
+            android:fontFamily="@font/austin_bold"
+            android:layout_gravity="center_horizontal"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:gravity="top"
+            android:layout_weight="6"
+            android:layout_marginTop="45dp"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+           <!--bottone plan your visit-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:background="@drawable/drawable_shape_1"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="horizontal"
+
+                android:paddingBottom="10dp"
+                android:paddingLeft="24dp"
+                android:paddingRight="24dp"
+                android:paddingTop="10dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PLAN YOUR VISIT"
+                    android:id="@+id/loginOrSignIn"
+
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/white"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <!--scritta or -->
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:clipToPadding="false"
+                android:gravity="center"
+                android:orientation="vertical"
+
+                android:paddingLeft="50dp"
+                android:layout_marginTop="15dp"
+                android:paddingRight="50dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Create your profile to save the artworks
+you’re interested in seeing"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/white"
+                    />
+                <!-- Separatore -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!-- Primo separatore bianco -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+                        android:background="@android:color/white" />
+
+                    <!-- Testo "OR" -->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:text="OR"
+                        android:textSize="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginStart="20dp"
+
+                        android:fontFamily="@font/roboto"
+                        android:textColor="@android:color/white"
+                        android:layout_gravity="center_vertical"
+
+                       />
+
+                    <!-- Secondo separatore bianco -->
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="2dp"
+                        android:layout_weight="1"
+                        android:layout_gravity="center_vertical"
+
+                        android:background="@android:color/white" />
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/withoutRegistration"
+                    android:layout_margin="25dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Continue without registration"
+                    android:fontFamily="@font/roboto"
+                    android:textColor="@color/white"
+                     />
+
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+
+
+    <!--linear layout del logo -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/text_margin"
+        android:layout_gravity="bottom">
+
+        <!-- Logo nella parte inferiore -->
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/logo"
+            android:layout_gravity="center_horizontal"/>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

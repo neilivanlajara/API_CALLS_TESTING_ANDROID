@@ -9,6 +9,8 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.api_calls_testing_android.ui.login.LoginActivity;
+
 
 public class SplashActivity extends AppCompatActivity {
 
@@ -22,7 +24,7 @@ public class SplashActivity extends AppCompatActivity {
         final Intent intent;
 
 
-            intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, WelcomeActivity.class);
 
 
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
@@ -31,6 +33,6 @@ public class SplashActivity extends AppCompatActivity {
             public void run() {
                 startActivity(intent);
             }
-        }, 1250);
+        }, 1000);
     }
 }

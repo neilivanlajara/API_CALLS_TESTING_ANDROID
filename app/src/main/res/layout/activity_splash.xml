@@ -18,8 +18,8 @@
         android:orientation="vertical">
 
         <FrameLayout
-            android:layout_width="152dp"
-            android:layout_height="152dp"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
             android:layout_gravity="center"
             android:layout_marginBottom="@dimen/activity_vertical_margin">
 
@@ -63,5 +63,7 @@
 
         android:textSize="21sp"
         android:textStyle="italic" />
+
+
 
 </LinearLayout>
