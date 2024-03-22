@@ -9,8 +9,6 @@ import android.widget.ProgressBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.api_calls_testing_android.ui.login.LoginActivity;
-
 
 public class SplashActivity extends AppCompatActivity {
 

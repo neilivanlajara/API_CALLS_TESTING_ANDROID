@@ -5,11 +5,12 @@
 example: android:id="@+id/username"
 
 textview:
+name
+surname
 email
-password
-login
-
-
+password1
+password2
+signin
 
 -->
 
@@ -73,7 +74,38 @@ login
             android:orientation="vertical"
             android:layout_height="wrap_content">
 
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="16dp"
+                android:padding="15dp"
+                android:background="@drawable/drawable_shape"
+                android:hint="Name"
 
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto"
+                android:inputType="text" />
+            <EditText
+                android:id="@+id/surname"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="16dp"
+                android:padding="15dp"
+                android:background="@drawable/drawable_shape"
+                android:hint="Surname"
+
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto"
+                android:inputType="text" />
             <EditText
                 android:id="@+id/email"
                 android:layout_width="match_parent"
@@ -91,7 +123,7 @@ login
                 android:fontFamily="@font/roboto"
                 android:inputType="textEmailAddress" />
             <EditText
-                android:id="@+id/password"
+                android:id="@+id/password1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
@@ -107,7 +139,23 @@ login
                 android:textSize="16sp"
                 android:fontFamily="@font/roboto"
                 android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/password2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:padding="15dp"
+                android:layout_marginBottom="16dp"
 
+                android:background="@drawable/drawable_shape"
+                android:hint="Confirm password"
+
+                android:textColorHint="@color/black"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:fontFamily="@font/roboto"
+                android:inputType="textPassword" />
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -125,8 +173,8 @@ login
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Login"
-                    android:id="@+id/login"
+                    android:text="CONTINUE"
+                    android:id="@+id/signin"
 
                     android:fontFamily="@font/roboto"
                     android:textColor="@color/white"
@@ -135,20 +183,6 @@ login
 
 
             </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Sign up"
-                android:id="@+id/goToSignIn"
-                android:layout_marginStart="20dp"
-                android:layout_marginBottom="16dp"
-
-                android:layout_marginEnd="20dp"
-                android:padding="15dp"
-                android:fontFamily="@font/roboto"
-                android:textColor="@color/white"
-                />
-
 
         </LinearLayout>
     </LinearLayout>

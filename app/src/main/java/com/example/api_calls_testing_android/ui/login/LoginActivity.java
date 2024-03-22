@@ -5,6 +5,7 @@ import android.app.Activity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -15,16 +16,16 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.KeyEvent;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.EditorInfo;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.api_calls_testing_android.MainActivity;
 import com.example.api_calls_testing_android.R;
-import com.example.api_calls_testing_android.ui.login.LoginViewModel;
-import com.example.api_calls_testing_android.ui.login.LoginViewModelFactory;
+import com.example.api_calls_testing_android.RegisterActivity;
 import com.example.api_calls_testing_android.databinding.ActivityLoginBinding;
 
 public class LoginActivity extends AppCompatActivity {
@@ -36,16 +37,25 @@ public class LoginActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getSupportActionBar().hide();
+
+
         binding = ActivityLoginBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
         loginViewModel = new ViewModelProvider(this, new LoginViewModelFactory())
                 .get(LoginViewModel.class);
 
-        final EditText usernameEditText = binding.username;
+        final EditText usernameEditText = binding.email;
         final EditText passwordEditText = binding.password;
-        final Button loginButton = binding.login;
+        final TextView goToSignIn = (TextView) binding.goToSignIn;
+        final TextView loginButton = (TextView) binding.login;
+/*
         final ProgressBar loadingProgressBar = binding.loading;
+*/
+
 
         loginViewModel.getLoginFormState().observe(this, new Observer<LoginFormState>() {
             @Override
@@ -69,7 +79,9 @@ public class LoginActivity extends AppCompatActivity {
                 if (loginResult == null) {
                     return;
                 }
+/*
                 loadingProgressBar.setVisibility(View.GONE);
+*/
                 if (loginResult.getError() != null) {
                     showLoginFailed(loginResult.getError());
                 }
@@ -117,10 +129,18 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+/*
                 loadingProgressBar.setVisibility(View.VISIBLE);
+*/
                 loginViewModel.login(usernameEditText.getText().toString(),
                         passwordEditText.getText().toString());
             }
+        });
+
+        goToSignIn.setOnClickListener( v ->{
+            final Intent intent;
+            intent = new Intent(this, RegisterActivity.class);
+            startActivity(intent);
         });
     }
 

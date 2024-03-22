@@ -1,25 +1,14 @@
 package com.example.api_calls_testing_android;
 
-import android.annotation.SuppressLint;
-
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
 import android.view.Window;
-import android.view.WindowInsets;
 import android.view.WindowManager;
 import android.widget.TextView;
 
-import com.example.api_calls_testing_android.databinding.ActivityWelcomeBinding;
 import com.example.api_calls_testing_android.ui.login.LoginActivity;
 
 /**
@@ -52,7 +41,6 @@ public class WelcomeActivity extends AppCompatActivity {
             final Intent intent;
             Log.d(TAG, "initialize: clicked loginOrSign");
             intent = new Intent(this, LoginActivity.class);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
         });
 
